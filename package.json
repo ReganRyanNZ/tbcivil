@@ -2,9 +2,14 @@
   "name": "trackbook",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "eslint": "^5.9.0",
+    "puppeteer": "^1.10.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
+  },
+  "scripts": {
+    "createPDF": "app/javascript/src/pdf.js"
   }
 }
