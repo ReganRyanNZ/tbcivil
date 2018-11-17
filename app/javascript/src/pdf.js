@@ -12,6 +12,7 @@ const createPdf = async() => {
     const page = await browser.newPage();
     console.log("Elapsed3: " + (new Date().getTime() - startTime));
     await page.goto(process.argv[2], {timeout: 30000, waitUntil: 'networkidle2'});
+    // Is this await necessary?
     // await page.waitFor(250);
     console.log("Elapsed4: " + (new Date().getTime() - startTime));
     await page.pdf({
