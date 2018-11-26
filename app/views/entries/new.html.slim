@@ -1,0 +1,6 @@
+h2 New Entry
+= form_for @entry do |f|
+  = f.time_field :started_at, value: @entry.started_at_time || Time.parse("7am").to_formatted_s(:time)
+  = f.time_field :finished_at, value: @entry.finished_at_time || Time.parse("5pm").to_formatted_s(:time)
+  = f.number_field :break_minutes, value: @entry.break_minutes || 0
+  = fields_for 
