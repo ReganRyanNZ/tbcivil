@@ -21,35 +21,35 @@ ActiveRecord::Schema.define(version: 2018_11_17_135635) do
     t.integer "break_minutes"
   end
 
-  create_table "job_entries", force: :cascade do |t|
+  create_table "machine_project_entries", force: :cascade do |t|
+    t.bigint "machine_id"
+    t.bigint "project_entry_id"
+    t.integer "start_hours"
+    t.integer "finish_hours"
+    t.index ["machine_id"], name: "index_machine_project_entries_on_machine_id"
+    t.index ["project_entry_id"], name: "index_machine_project_entries_on_project_entry_id"
+  end
+
+  create_table "machines", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "project_entries", force: :cascade do |t|
     t.string "weather"
     t.string "site_condition"
     t.string "location"
     t.text "activity_description"
     t.integer "hours_worked"
-    t.bigint "job_id"
+    t.bigint "project_id"
     t.bigint "entry_id"
-    t.index ["entry_id"], name: "index_job_entries_on_entry_id"
-    t.index ["job_id"], name: "index_job_entries_on_job_id"
+    t.index ["entry_id"], name: "index_project_entries_on_entry_id"
+    t.index ["project_id"], name: "index_project_entries_on_project_id"
   end
 
-  create_table "jobs", force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "number"
     t.string "project_type"
-  end
-
-  create_table "machine_job_entries", force: :cascade do |t|
-    t.bigint "machine_id"
-    t.bigint "job_entry_id"
-    t.integer "start_hours"
-    t.integer "finish_hours"
-    t.index ["job_entry_id"], name: "index_machine_job_entries_on_job_entry_id"
-    t.index ["machine_id"], name: "index_machine_job_entries_on_machine_id"
-  end
-
-  create_table "machines", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2018_11_17_135635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "job_entries", "entries"
-  add_foreign_key "job_entries", "jobs"
-  add_foreign_key "machine_job_entries", "job_entries"
-  add_foreign_key "machine_job_entries", "machines"
+  add_foreign_key "machine_project_entries", "machines"
+  add_foreign_key "machine_project_entries", "project_entries"
+  add_foreign_key "project_entries", "entries"
+  add_foreign_key "project_entries", "projects"
 end
