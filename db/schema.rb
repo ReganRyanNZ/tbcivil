@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_135635) do
+ActiveRecord::Schema.define(version: 2018_11_26_040102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,17 +21,10 @@ ActiveRecord::Schema.define(version: 2018_11_17_135635) do
     t.integer "break_minutes"
   end
 
-  create_table "machine_project_entries", force: :cascade do |t|
-    t.bigint "machine_id"
-    t.bigint "project_entry_id"
-    t.integer "start_hours"
-    t.integer "finish_hours"
-    t.index ["machine_id"], name: "index_machine_project_entries_on_machine_id"
-    t.index ["project_entry_id"], name: "index_machine_project_entries_on_project_entry_id"
-  end
-
   create_table "machines", force: :cascade do |t|
     t.string "name"
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_machines_on_team_id"
   end
 
   create_table "project_entries", force: :cascade do |t|
@@ -42,14 +35,31 @@ ActiveRecord::Schema.define(version: 2018_11_17_135635) do
     t.integer "hours_worked"
     t.bigint "project_id"
     t.bigint "entry_id"
+    t.bigint "team_id"
     t.index ["entry_id"], name: "index_project_entries_on_entry_id"
     t.index ["project_id"], name: "index_project_entries_on_project_id"
+    t.index ["team_id"], name: "index_project_entries_on_team_id"
+  end
+
+  create_table "project_entry_machines", force: :cascade do |t|
+    t.bigint "machine_id"
+    t.bigint "project_entry_id"
+    t.integer "start_hours"
+    t.integer "finish_hours"
+    t.index ["machine_id"], name: "index_project_entry_machines_on_machine_id"
+    t.index ["project_entry_id"], name: "index_project_entry_machines_on_project_entry_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "number"
     t.string "project_type"
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_projects_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,12 +70,20 @@ ActiveRecord::Schema.define(version: 2018_11_17_135635) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "team_id"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
-  add_foreign_key "machine_project_entries", "machines"
-  add_foreign_key "machine_project_entries", "project_entries"
+  add_foreign_key "machines", "teams"
   add_foreign_key "project_entries", "entries"
   add_foreign_key "project_entries", "projects"
+  add_foreign_key "project_entries", "teams"
+  add_foreign_key "project_entry_machines", "machines"
+  add_foreign_key "project_entry_machines", "project_entries"
+  add_foreign_key "projects", "teams"
+  add_foreign_key "users", "teams"
 end

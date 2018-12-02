@@ -1,6 +1,33 @@
 h2 New Entry
 = form_for @entry do |f|
+  = f.label :started_at, "Started at:"
   = f.time_field :started_at, value: @entry.started_at_time || Time.parse("7am").to_formatted_s(:time)
+  = f.label :finished_at, "Finished at:"
   = f.time_field :finished_at, value: @entry.finished_at_time || Time.parse("5pm").to_formatted_s(:time)
+  = f.label :break_minutes, "Break minutes:"
   = f.number_field :break_minutes, value: @entry.break_minutes || 0
-  = fields_for 
+  = fields_for @entry.project_entries.new do |project_entry_form|
+    = project_entry_form.hidden_field :team_id
+    .form_group
+      = project_entry_form.label :project_id, "Project"
+      = project_entry_form.select(:project_id, @user.team.projects.map { |project| [project.name, project.id] })
+    .form_group
+      = project_entry_form.label :weather, "Weather"
+      = project_entry_form.select :weather, [["Beautiful Day—U2", "sunny"],["November Rain—Guns N' Roses", "rain"],["Sweater Weather—The Neighbourhood", "snow"]]
+    .form_group
+      = project_entry_form.label :site_condition
+      = project_entry_form.select :site_condition, [["Nice n' Dry", "dry"],["Wet n' Gross", "wet"]]
+    .form_group
+      = project_entry_form.label :location
+      = project_entry_form.text_field :location
+    .form_group
+      = project_entry_form.label :activity_description
+      = project_entry_form.text_field :activity_description
+    .form_group
+      = project_entry_form.label :hours_worked
+      = project_entry_form.number_field :hours_worked
+    = fields_for @project_entry_machine do |machine_form|
+      = machine_form.label :start_hours
+      = machine_form.number_field :start_hours
+      = machine_form.label :finish_hours
+      = machine_form.number_field :finish_hours

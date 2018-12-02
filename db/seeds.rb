@@ -5,3 +5,66 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+TEAMS = [
+  {
+    name: "CivTrix Contracting"
+  }
+]
+
+TEAMS.each do |attributes|
+  Team.find_or_create_by(attributes)
+end
+
+team1 = Team.find_by(name: "CivTrix Contracting")
+
+###############################################################################
+
+USERS = [
+  {
+    email: "neo_anderson@example.com",
+    first_name: "Neo",
+    last_name: "Anderson",
+    team_id: team1.id
+  },
+  {
+    email: "john_wick@example.com",
+    first_name: "John",
+    last_name: "Wick",
+    team_id: team1.id
+  },
+  {
+    email: "samuel_jackson@example.com",
+    first_name: "Samuel",
+    last_name: "Jackson",
+    team_id: team1.id
+  }
+]
+
+USERS.each do |attributes|
+  user = User.find_or_initialize_by(attributes)
+  user.password = "Password101"
+  user.save
+end
+
+###############################################################################
+
+PROJECTS = [
+  {
+    name: "Beale St",
+    number: "256",
+    project_type: "Subdivision",
+    team_id: team1.id
+  },
+  {
+    name: "Fuschia Ln",
+    number: "290",
+    project_type: "Road",
+    team_id: team1.id
+  }
+]
+
+PROJECTS.each do |attributes|
+  Project.find_or_create_by(attributes)
+end
+

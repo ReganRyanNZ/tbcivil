@@ -1,6 +1,6 @@
-class CreateMachineProjectEntries < ActiveRecord::Migration[5.2]
+class CreateProjectEntryMachines < ActiveRecord::Migration[5.2]
   def change
-    create_table :machine_project_entries do |t|
+    create_table :project_entry_machines do |t|
       t.references :machine, foreign_key: true
       t.references :project_entry, foreign_key: true
       t.integer :start_hours
