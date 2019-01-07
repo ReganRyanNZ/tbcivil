@@ -4,7 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "eslint": "^5.9.0",
-    "puppeteer": "^1.10.0"
+    "puppeteer": "^1.10.0",
+    "rails-erb-loader": "^5.5.1"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

@@ -7,7 +7,6 @@ h2 New Entry
   = f.label :break_minutes, "Break minutes:"
   = f.number_field :break_minutes, value: @entry.break_minutes || 0
   = fields_for @entry.project_entries.new do |project_entry_form|
-    = project_entry_form.hidden_field :team_id
     .form_group
       = project_entry_form.label :project_id, "Project"
       = project_entry_form.select(:project_id, @user.team.projects.map { |project| [project.name, project.id] })

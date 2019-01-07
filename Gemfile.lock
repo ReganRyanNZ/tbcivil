@@ -49,6 +49,7 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    cocoon (1.2.12)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     devise (4.5.0)
@@ -180,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  cocoon
   devise
   jbuilder (~> 2.5)
   letter_opener

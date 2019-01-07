@@ -1,10 +1,13 @@
-
+##
+# An Entry is a worker's day of work, which could span multiple projects
 
 class Entry < ApplicationRecord
 
   belongs_to :user
   has_many :project_entries
   has_many :projects, through: :project_entries
+  accepts_nested_attributes_for :project_entries, reject_if: :all_blank, allow_destroy: true
+
 
 
   def started_at_time
