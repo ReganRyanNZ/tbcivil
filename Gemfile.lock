@@ -185,16 +185,16 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  cocoon
-  devise
+  cocoon (~> 1.2)
+  devise (~> 4.5)
   jbuilder (~> 2.5)
-  jquery-rails
+  jquery-rails (~> 4.3)
   letter_opener
   listen (>= 3.0.5, < 3.2)
   postgresql (~> 1.0)
   puma (~> 3.7)
   rails (~> 5.2)
-  slim
+  slim (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
