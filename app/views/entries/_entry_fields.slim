@@ -1,0 +1,9 @@
+.form_group
+  = f.label :started_at, "Started at:"
+  = f.time_field :started_at, value: @entry.started_at_time || Time.parse("7am").to_formatted_s(:time)
+.form_group
+  = f.label :finished_at, "Finished at:"
+  = f.time_field :finished_at, value: @entry.finished_at_time || Time.parse("5pm").to_formatted_s(:time)
+.form_group
+  = f.label :break_minutes, "Break minutes:"
+  = f.number_field :break_minutes, value: @entry.break_minutes || 0
