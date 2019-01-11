@@ -1,0 +1,8 @@
+.nested-fields.subform.material-subform
+  = link_to_remove_association "×", f
+  = f.label :material
+  = f.select(:material_id, @user.team.materials.map { |material| [material.name, material.id] })
+  = f.label :quantity
+  = f.number_field :quantity
+  = f.label :truck_size
+  = f.text_field :truck_size

@@ -10,4 +10,8 @@ class ProjectEntry < ApplicationRecord
   has_many :machines, through: :project_entry_machines
   accepts_nested_attributes_for :project_entry_machines, reject_if: :all_blank, allow_destroy: true
 
+  has_many :project_entry_materials, inverse_of: :project_entry
+  has_many :materials, through: :project_entry_materials
+  accepts_nested_attributes_for :project_entry_materials, reject_if: :all_blank, allow_destroy: true
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_040102) do
+ActiveRecord::Schema.define(version: 2019_01_11_221620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,17 @@ ActiveRecord::Schema.define(version: 2018_11_26_040102) do
   create_table "machines", force: :cascade do |t|
     t.string "name"
     t.bigint "team_id"
+    t.integer "last_hour_count", default: 0
     t.index ["team_id"], name: "index_machines_on_team_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.string "unit"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_materials_on_team_id"
   end
 
   create_table "project_entries", force: :cascade do |t|
@@ -48,6 +58,15 @@ ActiveRecord::Schema.define(version: 2018_11_26_040102) do
     t.integer "finish_hours"
     t.index ["machine_id"], name: "index_project_entry_machines_on_machine_id"
     t.index ["project_entry_id"], name: "index_project_entry_machines_on_project_entry_id"
+  end
+
+  create_table "project_entry_materials", force: :cascade do |t|
+    t.bigint "project_entry_id"
+    t.bigint "material_id"
+    t.decimal "quantity", precision: 10, scale: 2
+    t.string "truck_size"
+    t.index ["material_id"], name: "index_project_entry_materials_on_material_id"
+    t.index ["project_entry_id"], name: "index_project_entry_materials_on_project_entry_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -79,11 +98,14 @@ ActiveRecord::Schema.define(version: 2018_11_26_040102) do
   end
 
   add_foreign_key "machines", "teams"
+  add_foreign_key "materials", "teams"
   add_foreign_key "project_entries", "entries"
   add_foreign_key "project_entries", "projects"
   add_foreign_key "project_entries", "teams"
   add_foreign_key "project_entry_machines", "machines"
   add_foreign_key "project_entry_machines", "project_entries"
+  add_foreign_key "project_entry_materials", "materials"
+  add_foreign_key "project_entry_materials", "project_entries"
   add_foreign_key "projects", "teams"
   add_foreign_key "users", "teams"
 end

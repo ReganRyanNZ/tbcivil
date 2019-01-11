@@ -1,0 +1,48 @@
+form.new_entry {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+  }
+
+  .form_group {
+    margin-bottom: 8px;
+  }
+  .subform {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .project-subform {
+    background-color: #DDFFFF;
+  }
+
+  .machine-subform {
+    background-color: #DDFFDD;
+  }
+
+  .material-subform {
+    background-color: #FFDDFF;
+  }
+
+  input[type=text],input[type=number],input[type=time] {
+    border: 1px #DDD solid;
+    border-radius: 4px;
+    padding: 3px;
+  }
+
+  a.remove_fields {
+    float: right;
+    color: #c01919;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 0 5px;
+  }
+}

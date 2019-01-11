@@ -1,4 +1,5 @@
-.nested-fields
+.nested-fields.subform.project-subform
+  = link_to_remove_association "×", f
   .form_group
     = f.label :project_id, "Project"
     = f.select(:project_id, @user.team.projects.map { |project| [project.name, project.id] })
@@ -21,3 +22,7 @@
     = f.fields_for :project_entry_machines do |project_entry_machine|
       = render "project_entry_machine_fields", f: project_entry_machine
     = link_to_add_association 'add machine', f, :project_entry_machines
+  .form_group
+    = f.fields_for :project_entry_materials do |project_entry_material|
+      = render "project_entry_material_fields", f: project_entry_material
+    = link_to_add_association 'add material', f, :project_entry_materials

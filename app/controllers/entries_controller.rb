@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
   def new
     @entry ||= Entry.new
     @user = current_user
-    @project_entry_machine = ProjectEntryMachine.new
   end
 
   private

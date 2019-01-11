@@ -68,3 +68,52 @@ PROJECTS.each do |attributes|
   Project.find_or_create_by(attributes)
 end
 
+###############################################################################
+
+MACHINES = [
+  {
+    name: "Semi Truck 1",
+    team_id: team1.id
+  },
+  {
+    name: "Nathan's silly ute",
+    last_hour_count: 40563,
+    team_id: team1.id
+  },
+  {
+    name: "Regan's Tesla + trailer",
+    last_hour_count: 1562,
+    team_id: team1.id
+  },
+]
+
+MACHINES.each do |attributes|
+  Machine.find_or_create_by(attributes)
+end
+
+###############################################################################
+
+MATERIALS = [
+  {
+    name: "White Sand",
+    unit: "ton",
+    team_id: team1.id
+  },
+  {
+    name: "Small Rocks",
+    unit: "truck",
+    team_id: team1.id
+  },
+  {
+    name: "Big Rocks",
+    unit: "ton",
+    team_id: team1.id
+  },
+]
+
+MATERIALS.each do |attributes|
+  Material.find_or_create_by(attributes)
+end
+
+
+
