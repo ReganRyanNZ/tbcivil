@@ -8,6 +8,7 @@ class Entry < ApplicationRecord
   has_many :projects, through: :project_entries
   accepts_nested_attributes_for :project_entries, reject_if: :all_blank, allow_destroy: true
 
+  validates :break_minutes, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
 
   def started_at_time

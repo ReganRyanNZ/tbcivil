@@ -1,7 +1,7 @@
 .nested-fields.subform.machine-subform
   = link_to_remove_association "×", f
   = f.label :machine
-  = f.select(:machine_id, @user.team.machines.map { |machine| [machine.name, machine.id] })
+  = f.select(:machine_id, current_user.team.machines.map { |machine| [machine.name, machine.id] })
   = f.label :start_hours
   = f.number_field :start_hours
   = f.label :finish_hours

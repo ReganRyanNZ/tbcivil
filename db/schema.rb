@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_221620) do
+ActiveRecord::Schema.define(version: 2019_01_16_005301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2019_01_11_221620) do
     t.datetime "started_at"
     t.datetime "finished_at"
     t.integer "break_minutes"
+    t.string "weather"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "machines", force: :cascade do |t|
@@ -38,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_01_11_221620) do
   end
 
   create_table "project_entries", force: :cascade do |t|
-    t.string "weather"
     t.string "site_condition"
     t.string "location"
     t.text "activity_description"
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_221620) do
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "entries", "users"
   add_foreign_key "machines", "teams"
   add_foreign_key "materials", "teams"
   add_foreign_key "project_entries", "entries"

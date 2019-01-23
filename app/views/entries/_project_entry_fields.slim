@@ -2,22 +2,19 @@
   = link_to_remove_association "×", f
   .form_group
     = f.label :project_id, "Project"
-    = f.select(:project_id, @user.team.projects.map { |project| [project.name, project.id] })
+    = f.select(:project_id, current_user.team.projects.map { |project| [project.name, project.id] })
   .form_group
-    = f.label :weather, "Weather"
-    = f.select :weather, [["Beautiful Day—U2", "sunny"],["November Rain—Guns N' Roses", "rain"],["Sweater Weather—The Neighbourhood", "snow"]]
+    = f.label :hours_worked
+    = f.number_field :hours_worked, step: 0.5
   .form_group
     = f.label :site_condition
     = f.select :site_condition, [["Nice n' Dry", "dry"],["Wet n' Gross", "wet"]]
   .form_group
-    = f.label :location
-    = f.text_field :location
-  .form_group
     = f.label :activity_description
     = f.text_field :activity_description
   .form_group
-    = f.label :hours_worked
-    = f.number_field :hours_worked
+    = f.label :location, "Activity Location"
+    = f.text_field :location
   .form_group
     = f.fields_for :project_entry_machines do |project_entry_machine|
       = render "project_entry_machine_fields", f: project_entry_machine
