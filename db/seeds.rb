@@ -116,4 +116,22 @@ MATERIALS.each do |attributes|
 end
 
 
+###############################################################################
 
+PROJECT_CODES = [
+  {
+    name: "Waterworks"
+  },
+  {
+    name: "Earthworks"
+  },
+  {
+    name: "Internal"
+  }
+]
+
+Project.all.each do |project|
+  PROJECT_CODES.each do |pc|
+    ProjectCode.find_or_create_by(pc.merge(project: project))
+  end
+end
