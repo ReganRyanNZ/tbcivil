@@ -4,3 +4,16 @@ body {
   font-size: 14px;
   font-family: Geneva, Verdana, sans-serif;
 }
+
+.flash {
+  text-align: center;
+  padding: 1rem 5px;
+  &.alert {
+    background-color: #ffcece;
+    color: #670000;
+  }
+  &.notice {
+    background-color: #c9fdc4;
+    color: #144800;
+  }
+}
