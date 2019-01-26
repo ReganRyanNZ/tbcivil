@@ -6,7 +6,6 @@ class EntriesController < ApplicationController
   end
 
   def create
-    byebug
     @entry = Entry.new(entry_params)
 
     if @entry.save

@@ -3,6 +3,7 @@
   <head>
     <title>Track Book</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
@@ -10,8 +11,12 @@
   </head>
 
   <body>
-      <p class="flash notice"><%= notice %></p>
-      <p class="flash alert"><%= alert %></p>
+    <% if notice %>
+      <div class="flash notice"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="flash alert"><%= alert %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
