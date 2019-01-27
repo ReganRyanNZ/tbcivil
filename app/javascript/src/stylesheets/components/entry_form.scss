@@ -12,6 +12,11 @@ form.new_entry {
     display: block;
   }
 
+  input[type=submit] {
+    display: block;
+    margin: auto;
+  }
+
   .form_group {
     margin-bottom: 8px;
   }

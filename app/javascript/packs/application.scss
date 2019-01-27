@@ -18,3 +18,15 @@ body {
     color: #144800;
   }
 }
+
+.btn, .add_fields {
+  display: inline-block;
+  padding: 5px 9px;
+  line-height: 1.4;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fdfdfd;
+}
