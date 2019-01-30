@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_161551) do
+ActiveRecord::Schema.define(version: 2019_01_30_211838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 2019_01_25_161551) do
     t.bigint "project_id"
     t.bigint "entry_id"
     t.bigint "team_id"
+    t.bigint "project_code_id"
     t.index ["entry_id"], name: "index_project_entries_on_entry_id"
+    t.index ["project_code_id"], name: "index_project_entries_on_project_code_id"
     t.index ["project_id"], name: "index_project_entries_on_project_id"
     t.index ["team_id"], name: "index_project_entries_on_team_id"
   end
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_161551) do
   add_foreign_key "materials", "teams"
   add_foreign_key "project_codes", "projects"
   add_foreign_key "project_entries", "entries"
+  add_foreign_key "project_entries", "project_codes"
   add_foreign_key "project_entries", "projects"
   add_foreign_key "project_entries", "teams"
   add_foreign_key "project_entry_machines", "machines"

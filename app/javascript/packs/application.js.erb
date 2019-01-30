@@ -8,3 +8,10 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "<%= File.join(Gem.loaded_specs['cocoon'].full_gem_path, 'app', 'assets', 'javascripts', 'cocoon') %>"
+
+<% files_glob = Rails.application.root.join('app', 'javascript', 'src', 'javascripts', '*.js') %>
+<% Dir.glob(files_glob).each do |file| %>
+  import '<%= file %>';
+<% end %>
+
+console.log("asdf");

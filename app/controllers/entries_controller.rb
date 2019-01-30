@@ -3,6 +3,15 @@ class EntriesController < ApplicationController
 
   def new
     @entry ||= Entry.new
+    gon.push({
+      project_codes: current_user.team.projects.map { |project|
+        {
+          project.id => [
+            project.project_codes.map { |code| [code.name, code.id] }
+          ]
+        }
+      }
+    })
   end
 
   def create

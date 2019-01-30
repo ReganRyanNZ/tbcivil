@@ -10,6 +10,7 @@ gem 'webpacker', '~> 3.5'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3'
+gem 'gon', '~> 6.2'
 
 gem 'cocoon', '~> 1.2'
 gem 'devise', '~> 4.5'

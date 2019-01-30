@@ -134,4 +134,5 @@ Project.all.each do |project|
   PROJECT_CODES.each do |pc|
     ProjectCode.find_or_create_by(pc.merge(project: project))
   end
+  ProjectCode.find_or_create_by(name: "Special Code #{project.id}", project: project)
 end
