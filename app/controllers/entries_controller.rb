@@ -28,6 +28,7 @@ class EntriesController < ApplicationController
     current_user.team.projects.each { |project|
       project_codes[project.id] = project.project_codes.map { |code| [code.name, code.id] }.sort_by { |code| code[0] }
     }
+    project_codes
   end
 
   def entry_params
