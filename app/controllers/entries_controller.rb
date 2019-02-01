@@ -3,10 +3,7 @@ class EntriesController < ApplicationController
 
   def new
     @entry ||= Entry.new
-
-    gon.push({
-      project_codes: current_project_codes
-    })
+    setup_form_data
   end
 
   def create
@@ -16,6 +13,7 @@ class EntriesController < ApplicationController
       # redirect_to @entry, notice: "Entry successfully saved."
       redirect_to root_path, notice: "Entry successfully saved."
     else
+      setup_form_data
       flash.now[:alert] = "Your entry could not be saved: #{@entry.errors.full_messages.join(", ")}."
       render :new
     end
@@ -23,12 +21,25 @@ class EntriesController < ApplicationController
 
   private
 
+  def setup_form_data
+    current_projects
+    current_project_codes
+    gon.push({
+      project_codes: @current_project_codes
+    })
+  end
+
+  def current_projects
+    @current_projects ||= current_user.team.projects.sort_by(&:name)
+  end
+
   def current_project_codes
-    project_codes = {}
-    current_user.team.projects.each { |project|
-      project_codes[project.id] = project.project_codes.map { |code| [code.name, code.id] }.sort_by { |code| code[0] }
+    return @current_project_codes if @current_project_codes
+    @current_project_codes = {}
+    current_projects.each { |project|
+      @current_project_codes[project.id] = project.project_codes.map { |code| [code.name, code.id] }.sort_by { |code| code[0] }
     }
-    project_codes
+    @current_project_codes
   end
 
   def entry_params

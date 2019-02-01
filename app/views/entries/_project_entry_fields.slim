@@ -4,13 +4,13 @@
     .form_group
       = f.label :project_id, "Project"
       = f.select(:project_id,
-        current_user.team.projects.map { |project| [project.name, project.id] },
+        @current_projects.map { |project| [project.name, project.id] },
         {},
         { onChange: "updateCodes(this)" },
         )
     .form_group
       = f.label :project_code_id, "Code"
-      = f.select(:project_code_id, current_user.team.projects.first.project_codes.map { |code| [code.name, code.id] })
+      = f.select(:project_code_id, @current_project_codes[f.object.project_id || @current_projects.first.id])
   .form_group
     = f.label :hours_worked
     = f.number_field :hours_worked, step: 0.5
