@@ -1,7 +1,7 @@
 = form_for @entry do |f|
   h2 New Entry
   = render 'entry_fields', f: f
-  .form_group
+  .form_group#project_entries
     = f.fields_for :project_entries do |project_entry|
       = render "project_entry_fields", f: project_entry
     = link_to_add_association 'add project', f, :project_entries

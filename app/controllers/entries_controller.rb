@@ -3,14 +3,9 @@ class EntriesController < ApplicationController
 
   def new
     @entry ||= Entry.new
+
     gon.push({
-      project_codes: current_user.team.projects.map { |project|
-        {
-          project.id => [
-            project.project_codes.map { |code| [code.name, code.id] }
-          ]
-        }
-      }
+      project_codes: current_project_codes
     })
   end
 
@@ -28,6 +23,13 @@ class EntriesController < ApplicationController
 
   private
 
+  def current_project_codes
+    project_codes = {}
+    current_user.team.projects.each { |project|
+      project_codes[project.id] = project.project_codes.map { |code| [code.name, code.id] }.sort_by { |code| code[0] }
+    }
+  end
+
   def entry_params
     params.require(:entry).permit(
       :user_id,
@@ -39,6 +41,7 @@ class EntriesController < ApplicationController
         :id,
         :_destroy,
         :project_id,
+        :project_code_id,
         :site_condition,
         :location,
         :activity_description,
