@@ -10,8 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
  @import "components/entry_form.scss";
@@ -40,7 +38,7 @@ body, html {
   padding: 5px 9px;
   line-height: 1.4;
   font-size: 1rem;
-  border: 1px solid #333;
+  border: 1px solid #aaa;
   border-radius: 5px;
   text-decoration: none;
   color: #333;

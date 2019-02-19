@@ -17,6 +17,10 @@ form.new_entry {
     margin: auto;
   }
 
+  input, select {
+    margin-bottom: 10px;
+  }
+
   .form_group {
     margin-bottom: 8px;
   }
@@ -26,15 +30,13 @@ form.new_entry {
     margin-bottom: 10px;
   }
   .project-subform {
-    background-color: #DDFFFF;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
   }
 
-  .machine-subform {
-    background-color: #DDFFDD;
-  }
-
-  .material-subform {
-    background-color: #FFDDFF;
+  .machine-subform, .material-subform {
+    background-color: #f9F9F9;
+    border: 1px solid #cfcfcf;
   }
 
   input[type=text],input[type=number],input[type=time] {
