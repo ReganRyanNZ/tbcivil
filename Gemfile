@@ -16,6 +16,8 @@ gem 'cocoon', '~> 1.2'
 gem 'devise', '~> 4.5'
 gem 'slim', '~> 4.0'
 
+gem 'money-rails', '~> 1.13'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
