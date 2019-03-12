@@ -20,6 +20,10 @@ gem 'money-rails', '~> 1.13'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
