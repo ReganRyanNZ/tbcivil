@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_172451) do
     t.datetime "updated_at", null: false
     t.integer "current_rate_cents"
     t.string "currency"
-    t.decimal "tons_per_m3", precision: 6, scale: 6
+    t.decimal "tons_per_m3", precision: 8, scale: 4
     t.index ["team_id"], name: "index_materials_on_team_id"
   end
 

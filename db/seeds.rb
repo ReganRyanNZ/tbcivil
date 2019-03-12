@@ -97,17 +97,26 @@ MATERIALS = [
   {
     name: "White Sand",
     unit: "ton",
-    team_id: team1.id
+    team_id: team1.id,
+    tons_per_m3: 2,
+    current_rate_cents: 4800,
+    currency: "AUD"
   },
   {
     name: "Small Rocks",
     unit: "truck",
-    team_id: team1.id
+    team_id: team1.id,
+    tons_per_m3: 1.5,
+    current_rate_cents: 9000,
+    currency: "AUD"
   },
   {
     name: "Big Rocks",
     unit: "ton",
-    team_id: team1.id
+    team_id: team1.id,
+    tons_per_m3: 2.3,
+    current_rate_cents: 8000,
+    currency: "AUD"
   },
 ]
 

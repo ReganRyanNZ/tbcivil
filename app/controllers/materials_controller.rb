@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_material, only: [:show, :edit, :update, :destroy]
 
   # GET /materials

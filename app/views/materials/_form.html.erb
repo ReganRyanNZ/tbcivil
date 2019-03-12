@@ -22,6 +22,17 @@
     <%= form.text_field :unit %>
   </div>
 
+  <div class="field">
+    <%= form.label :rate, "Rate per unit" %>
+    <%= form.text_field :current_rate %>
+    <%= material.currency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tons_per_m3, "Tons per m³" %>
+    <%= form.text_field :tons_per_m3 %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
