@@ -4,6 +4,7 @@
 class Entry < ApplicationRecord
 
   belongs_to :user
+  has_one :team, through: :user
   has_many :project_entries
   has_many :projects, through: :project_entries
   accepts_nested_attributes_for :project_entries, reject_if: :all_blank, allow_destroy: true
@@ -12,10 +13,10 @@ class Entry < ApplicationRecord
 
 
   def started_at_time
-    started_at&.to_formatted_s(:time)
+    started_at&.localtime&.to_formatted_s(:time)
   end
 
   def finished_at_time
-    finished_at&.to_formatted_s(:time)
+    finished_at&.localtime&.to_formatted_s(:time)
   end
 end

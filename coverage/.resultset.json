@@ -1,0 +1,203 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/regan/code/trackbook/app/models/entry.rb": [
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/machine_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/machine.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/material_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/material.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/project_entry_machine_spec.rb": [
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/project.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/project_entry_material_spec.rb": [
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/project_entry_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/project_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/team_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/team.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/project_entry.rb": [
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/project_entry_machine.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/regan/code/trackbook/app/models/project_entry_material.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1553597870
+  }
+}
