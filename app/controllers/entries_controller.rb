@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_team!
   before_action :authenticate_user!
 
   def new

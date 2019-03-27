@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'cocoon', '~> 1.2'
 gem 'devise', '~> 4.5'
-gem 'slim', '~> 4.0'
+gem 'slim-rails'
 
 gem 'money-rails', '~> 1.13'
 
